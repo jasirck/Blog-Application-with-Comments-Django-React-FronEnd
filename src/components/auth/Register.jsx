@@ -21,7 +21,7 @@ const Register = () => {
         setError('Passwords do not match');
         return;
       }
-      const response = await axios.post('/api/auth/register/', { username, email, password });
+      const response = await axios.post('auth/register/', { username, email, password });
       dispatch(login(response.data));
       navigate('/dashboard');
     } catch (err) {
