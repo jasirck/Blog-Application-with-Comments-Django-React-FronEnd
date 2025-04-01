@@ -25,7 +25,7 @@ Ensure you have Node.js and npm/yarn installed.
 ### Steps
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-repo/blog-frontend.git
+   git clone https://github.com/jasirck/Blog-Application-with-Comments-Django-React-FronEnd.git
    cd Blog-Application-with-Comments-Django-React-FronEnd
 
    ```
