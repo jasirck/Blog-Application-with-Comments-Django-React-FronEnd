@@ -5,7 +5,7 @@ import { login } from '../../redux/authSlice';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
@@ -14,9 +14,10 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/auth/login/', { email, password });
+      const response = await axios.post('/api/auth/login/', { username, password });
       dispatch(login(response.data));
-      navigate('/dashboard');
+      
+      navigate('/');
     } catch (err) {
       setError(err.response?.data?.message || 'Login failed');
     }
@@ -28,11 +29,11 @@ const Login = () => {
         <h1 className="text-2xl font-bold mb-4">Login</h1>
         {error && <p className="text-red-500">{error}</p>}
         <input
-          type="email"
-          placeholder="Email"
+          type="text"
+          placeholder="Username"
           className="w-full p-2 border mb-4 rounded"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
         />
         <input
           type="password"
@@ -47,7 +48,7 @@ const Login = () => {
         >
           Login
         </button>
-        <p className="mt-4 text-center text-gray-600 cursor-pointer" onClick={() => navigate('/register')}>Don't have an account? </p>
+        <p className="mt-4 text-center text-gray-600 cursor-pointer" onClick={() => navigate('/')}>Don't have an account? </p>
       </form>
     </div>
   );

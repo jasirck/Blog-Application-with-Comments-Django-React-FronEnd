@@ -68,6 +68,7 @@ const Register = () => {
         >
           Register
         </button>
+        <p className="mt-4 text-center text-gray-600 cursor-pointer" onClick={() => navigate('/login')}>I have an account? </p>
       </form>
     </div>
   );
