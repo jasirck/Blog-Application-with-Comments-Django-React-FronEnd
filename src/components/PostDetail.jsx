@@ -17,6 +17,9 @@ const PostDetail = () => {
   const [isTogglingLike, setIsTogglingLike] = useState(false);
 
   useEffect(() => {
+    if (!user) {
+        navigate('/login');
+      }
     const fetchPostData = async () => {
       try {
         setLoading(true);

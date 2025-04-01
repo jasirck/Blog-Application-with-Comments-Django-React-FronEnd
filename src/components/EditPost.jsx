@@ -19,6 +19,9 @@ const EditPost = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    if (!user) {
+        navigate('/login');
+      }
     const fetchPost = async () => {
       try {
         const response = await axiosInstance.get(`posts/${id}/`);
